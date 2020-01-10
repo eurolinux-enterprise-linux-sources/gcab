@@ -1,0 +1,76 @@
+
+/* Generated data (by glib-mkenums) */
+
+/*
+ * Copyright (C) 2012 Marc-André Lureau <marcandre.lureau@redhat.com>
+ *
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2 of the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.	 See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library. If not, see <http://www.gnu.org/licenses/>.
+ */
+
+#include "gcab-enums.h"
+
+#include "libgcab/gcab-folder.h"
+
+GType
+gcab_compression_get_type (void)
+{
+  static volatile gsize g_define_type_id__volatile = 0;
+
+  if (g_once_init_enter (&g_define_type_id__volatile))
+    {
+      static const GEnumValue values[] = {
+        { GCAB_COMPRESSION_NONE, "GCAB_COMPRESSION_NONE", "none" },
+        { GCAB_COMPRESSION_MSZIP, "GCAB_COMPRESSION_MSZIP", "mszip" },
+        { GCAB_COMPRESSION_QUANTUM, "GCAB_COMPRESSION_QUANTUM", "quantum" },
+        { GCAB_COMPRESSION_LZX, "GCAB_COMPRESSION_LZX", "lzx" },
+        { GCAB_COMPRESSION_MASK, "GCAB_COMPRESSION_MASK", "mask" },
+        { 0, NULL, NULL }
+      };
+      GType g_define_type_id =
+        g_enum_register_static (g_intern_static_string ("GCabCompression"), values);
+      g_once_init_leave (&g_define_type_id__volatile, g_define_type_id);
+    }
+
+  return g_define_type_id__volatile;
+}
+
+#include "libgcab/gcab-file.h"
+
+GType
+gcab_file_attribute_get_type (void)
+{
+  static volatile gsize g_define_type_id__volatile = 0;
+
+  if (g_once_init_enter (&g_define_type_id__volatile))
+    {
+      static const GEnumValue values[] = {
+        { GCAB_FILE_ATTRIBUTE_RDONLY, "GCAB_FILE_ATTRIBUTE_RDONLY", "rdonly" },
+        { GCAB_FILE_ATTRIBUTE_HIDDEN, "GCAB_FILE_ATTRIBUTE_HIDDEN", "hidden" },
+        { GCAB_FILE_ATTRIBUTE_SYSTEM, "GCAB_FILE_ATTRIBUTE_SYSTEM", "system" },
+        { GCAB_FILE_ATTRIBUTE_ARCH, "GCAB_FILE_ATTRIBUTE_ARCH", "arch" },
+        { GCAB_FILE_ATTRIBUTE_EXEC, "GCAB_FILE_ATTRIBUTE_EXEC", "exec" },
+        { GCAB_FILE_ATTRIBUTE_NAME_IS_UTF, "GCAB_FILE_ATTRIBUTE_NAME_IS_UTF", "name-is-utf" },
+        { 0, NULL, NULL }
+      };
+      GType g_define_type_id =
+        g_enum_register_static (g_intern_static_string ("GCabFileAttribute"), values);
+      g_once_init_leave (&g_define_type_id__volatile, g_define_type_id);
+    }
+
+  return g_define_type_id__volatile;
+}
+
+
+/* Generated data ends here */
+

@@ -1,0 +1,558 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>GCabFile: GCab Reference Manual</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.78.1">
+<link rel="home" href="index.html" title="GCab Reference Manual">
+<link rel="up" href="ch01.html" title="Cabinet API">
+<link rel="prev" href="GCabFolder.html" title="GCabFolder">
+<link rel="next" href="object-tree.html" title="Object Hierarchy">
+<meta name="generator" content="GTK-Doc V1.24 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="5"><tr valign="middle">
+<td width="100%" align="left" class="shortcuts">
+<a href="#" class="shortcut">Top</a><span id="nav_description">  <span class="dim">|</span> 
+                  <a href="#GCabFile.description" class="shortcut">Description</a></span><span id="nav_hierarchy">  <span class="dim">|</span> 
+                  <a href="#GCabFile.object-hierarchy" class="shortcut">Object Hierarchy</a></span><span id="nav_properties">  <span class="dim">|</span> 
+                  <a href="#GCabFile.properties" class="shortcut">Properties</a></span>
+</td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="16" height="16" border="0" alt="Home"></a></td>
+<td><a accesskey="u" href="ch01.html"><img src="up.png" width="16" height="16" border="0" alt="Up"></a></td>
+<td><a accesskey="p" href="GCabFolder.html"><img src="left.png" width="16" height="16" border="0" alt="Prev"></a></td>
+<td><a accesskey="n" href="object-tree.html"><img src="right.png" width="16" height="16" border="0" alt="Next"></a></td>
+</tr></table>
+<div class="refentry">
+<a name="GCabFile"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="GCabFile.top_of_page"></a>GCabFile</span></h2>
+<p>GCabFile — A file contained in the Cabinet</p>
+</td>
+<td class="gallery_image" valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsect1">
+<a name="GCabFile.stability-level"></a><h2>Stability Level</h2>
+<acronym title="The intention of a Stable interface is to enable arbitrary third parties to
+develop applications to these interfaces, release them, and have confidence that
+they will run on all minor releases of the product (after the one in which the
+interface was introduced, and within the same major release). Even at a major
+release, incompatible changes are expected to be rare, and to have strong
+justifications.
+"><span class="acronym">Stable</span></acronym>, unless otherwise indicated
+</div>
+<div class="refsect1">
+<a name="GCabFile.functions"></a><h2>Functions</h2>
+<div class="informaltable"><table width="100%" border="0">
+<colgroup>
+<col width="150px" class="functions_return">
+<col class="functions_name">
+</colgroup>
+<tbody>
+<tr>
+<td class="function_type">
+<span class="returnvalue">gboolean</span>
+</td>
+<td class="function_name">
+<span class="c_punctuation">(</span><a class="link" href="GCabFile.html#GCabFileCallback" title="GCabFileCallback ()">*GCabFileCallback</a><span class="c_punctuation">)</span> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">guint32</span>
+</td>
+<td class="function_name">
+<a class="link" href="GCabFile.html#gcab-file-get-attributes" title="gcab_file_get_attributes ()">gcab_file_get_attributes</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">void</span>
+</td>
+<td class="function_name">
+<a class="link" href="GCabFile.html#gcab-file-get-date" title="gcab_file_get_date ()">gcab_file_get_date</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">const <span class="returnvalue">gchar</span> *
+</td>
+<td class="function_name">
+<a class="link" href="GCabFile.html#gcab-file-get-extract-name" title="gcab_file_get_extract_name ()">gcab_file_get_extract_name</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">GFile</span> *
+</td>
+<td class="function_name">
+<a class="link" href="GCabFile.html#gcab-file-get-file" title="gcab_file_get_file ()">gcab_file_get_file</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">const <span class="returnvalue">gchar</span> *
+</td>
+<td class="function_name">
+<a class="link" href="GCabFile.html#gcab-file-get-name" title="gcab_file_get_name ()">gcab_file_get_name</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">guint32</span>
+</td>
+<td class="function_name">
+<a class="link" href="GCabFile.html#gcab-file-get-size" title="gcab_file_get_size ()">gcab_file_get_size</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a class="link" href="GCabFile.html" title="GCabFile"><span class="returnvalue">GCabFile</span></a> *
+</td>
+<td class="function_name">
+<a class="link" href="GCabFile.html#gcab-file-new-with-file" title="gcab_file_new_with_file ()">gcab_file_new_with_file</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">void</span>
+</td>
+<td class="function_name">
+<a class="link" href="GCabFile.html#gcab-file-set-extract-name" title="gcab_file_set_extract_name ()">gcab_file_set_extract_name</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect1">
+<a name="GCabFile.properties"></a><h2>Properties</h2>
+<div class="informaltable"><table border="0">
+<colgroup>
+<col width="150px" class="properties_type">
+<col width="300px" class="properties_name">
+<col width="200px" class="properties_flags">
+</colgroup>
+<tbody>
+<tr>
+<td class="property_type">
+<span class="type">GFile</span> *</td>
+<td class="property_name"><a class="link" href="GCabFile.html#GCabFile--file" title="The “file” property">file</a></td>
+<td class="property_flags">Read / Write / Construct Only</td>
+</tr>
+<tr>
+<td class="property_type">
+<span class="type">gchar</span> *</td>
+<td class="property_name"><a class="link" href="GCabFile.html#GCabFile--name" title="The “name” property">name</a></td>
+<td class="property_flags">Read / Write / Construct Only</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect1">
+<a name="GCabFile.other"></a><h2>Types and Values</h2>
+<div class="informaltable"><table width="100%" border="0">
+<colgroup>
+<col width="150px" class="name">
+<col class="description">
+</colgroup>
+<tbody>
+<tr>
+<td class="datatype_keyword">enum</td>
+<td class="function_name"><a class="link" href="GCabFile.html#GCabFileAttribute" title="enum GCabFileAttribute">GCabFileAttribute</a></td>
+</tr>
+<tr>
+<td class="datatype_keyword"> </td>
+<td class="function_name"><a class="link" href="GCabFile.html#GCabFile-struct" title="GCabFile">GCabFile</a></td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect1">
+<a name="GCabFile.object-hierarchy"></a><h2>Object Hierarchy</h2>
+<pre class="screen">    GEnum
+    <span class="lineart">╰──</span> GCabFileAttribute
+    GObject
+    <span class="lineart">╰──</span> GCabFile
+</pre>
+</div>
+<div class="refsect1">
+<a name="GCabFile.includes"></a><h2>Includes</h2>
+<pre class="synopsis">#include &lt;libgcab.h&gt;
+</pre>
+</div>
+<div class="refsect1">
+<a name="GCabFile.description"></a><h2>Description</h2>
+<p>A GCabFile is a handle to a file inside a Cabinet archive.
+It can either be a file that is already within an exisiting
+archive, or a file that reference a file on disk that will be used
+for a new archive creation. In the later case, <a class="link" href="GCabFile.html#gcab-file-get-file" title="gcab_file_get_file ()"><code class="function">gcab_file_get_file()</code></a>
+must return a valid handle.</p>
+</div>
+<div class="refsect1">
+<a name="GCabFile.functions_details"></a><h2>Functions</h2>
+<div class="refsect2">
+<a name="GCabFileCallback"></a><h3>GCabFileCallback ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>
+<span class="c_punctuation">(</span>*GCabFileCallback<span class="c_punctuation">)</span> (<em class="parameter"><code><a class="link" href="GCabFile.html" title="GCabFile"><span class="type">GCabFile</span></a> *file</code></em>,
+                     <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);</pre>
+<p>The type used for callback called when processing Cabinet archive
+files.</p>
+<div class="refsect3">
+<a name="id-1.2.4.10.2.5"></a><h4>Parameters</h4>
+<div class="informaltable"><table width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>file</p></td>
+<td class="parameter_description"><p>the file being processed</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>user_data</p></td>
+<td class="parameter_description"><p>user data passed to the callback.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gcab-file-get-attributes"></a><h3>gcab_file_get_attributes ()</h3>
+<pre class="programlisting"><span class="returnvalue">guint32</span>
+gcab_file_get_attributes (<em class="parameter"><code><a class="link" href="GCabFile.html" title="GCabFile"><span class="type">GCabFile</span></a> *file</code></em>);</pre>
+<p>Get the file attributes.</p>
+<div class="refsect3">
+<a name="id-1.2.4.10.3.5"></a><h4>Parameters</h4>
+<div class="informaltable"><table width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody><tr>
+<td class="parameter_name"><p>file</p></td>
+<td class="parameter_description"><p>a <a class="link" href="GCabFile.html" title="GCabFile"><span class="type">GCabFile</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="id-1.2.4.10.3.6"></a><h4>Returns</h4>
+<p> the cabinet file attributes</p>
+</div>
+<p class="since">Since: <a class="link" href="index.html#api-index-0.6">0.6</a></p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gcab-file-get-date"></a><h3>gcab_file_get_date ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>
+gcab_file_get_date (<em class="parameter"><code><a class="link" href="GCabFile.html" title="GCabFile"><span class="type">GCabFile</span></a> *file</code></em>,
+                    <em class="parameter"><code><span class="type">GTimeVal</span> *result</code></em>);</pre>
+<p>Get the file date.</p>
+<div class="refsect3">
+<a name="id-1.2.4.10.4.5"></a><h4>Parameters</h4>
+<div class="informaltable"><table width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>file</p></td>
+<td class="parameter_description"><p>a <a class="link" href="GCabFile.html" title="GCabFile"><span class="type">GCabFile</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>result</p></td>
+<td class="parameter_description"><p>a <span class="type">GTimeVal</span> to return date</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="id-1.2.4.10.4.6"></a><h4>Returns</h4>
+<p> the cabinet file date in <em class="parameter"><code>result</code></em>
+</p>
+</div>
+<p class="since">Since: <a class="link" href="index.html#api-index-0.6">0.6</a></p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gcab-file-get-extract-name"></a><h3>gcab_file_get_extract_name ()</h3>
+<pre class="programlisting">const <span class="returnvalue">gchar</span> *
+gcab_file_get_extract_name (<em class="parameter"><code><a class="link" href="GCabFile.html" title="GCabFile"><span class="type">GCabFile</span></a> *file</code></em>);</pre>
+<p>Get the file name to use for extraction, or <code class="literal">NULL</code>.</p>
+<div class="refsect3">
+<a name="id-1.2.4.10.5.5"></a><h4>Parameters</h4>
+<div class="informaltable"><table width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody><tr>
+<td class="parameter_name"><p>file</p></td>
+<td class="parameter_description"><p>a <a class="link" href="GCabFile.html" title="GCabFile"><span class="type">GCabFile</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="id-1.2.4.10.5.6"></a><h4>Returns</h4>
+<p> a file name. </p>
+<p><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></p>
+</div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gcab-file-get-file"></a><h3>gcab_file_get_file ()</h3>
+<pre class="programlisting"><span class="returnvalue">GFile</span> *
+gcab_file_get_file (<em class="parameter"><code><a class="link" href="GCabFile.html" title="GCabFile"><span class="type">GCabFile</span></a> *file</code></em>);</pre>
+<p>If the cabinet is being created, get the <span class="type">GFile</span> associated with
+<em class="parameter"><code>file</code></em>
+. This must be an exisiting file that can be read, in order to
+be added to the archive during cabinet creation.</p>
+<p>If <em class="parameter"><code>file</code></em>
+ is from an existing cabinet, the fuction will return
+<code class="literal">NULL</code>.</p>
+<div class="refsect3">
+<a name="id-1.2.4.10.6.6"></a><h4>Parameters</h4>
+<div class="informaltable"><table width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody><tr>
+<td class="parameter_name"><p>file</p></td>
+<td class="parameter_description"><p>a <a class="link" href="GCabFile.html" title="GCabFile"><span class="type">GCabFile</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="id-1.2.4.10.6.7"></a><h4>Returns</h4>
+<p> the associated <span class="type">GFile</span> or <code class="literal">NULL</code>. </p>
+<p><span class="annotation">[<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>]</span></p>
+</div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gcab-file-get-name"></a><h3>gcab_file_get_name ()</h3>
+<pre class="programlisting">const <span class="returnvalue">gchar</span> *
+gcab_file_get_name (<em class="parameter"><code><a class="link" href="GCabFile.html" title="GCabFile"><span class="type">GCabFile</span></a> *file</code></em>);</pre>
+<p>Get the file name within the cabinet.</p>
+<div class="refsect3">
+<a name="id-1.2.4.10.7.5"></a><h4>Parameters</h4>
+<div class="informaltable"><table width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody><tr>
+<td class="parameter_name"><p>file</p></td>
+<td class="parameter_description"><p>a <a class="link" href="GCabFile.html" title="GCabFile"><span class="type">GCabFile</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="id-1.2.4.10.7.6"></a><h4>Returns</h4>
+<p> the cabinet file name</p>
+</div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gcab-file-get-size"></a><h3>gcab_file_get_size ()</h3>
+<pre class="programlisting"><span class="returnvalue">guint32</span>
+gcab_file_get_size (<em class="parameter"><code><a class="link" href="GCabFile.html" title="GCabFile"><span class="type">GCabFile</span></a> *file</code></em>);</pre>
+<p>Get the file size.</p>
+<div class="refsect3">
+<a name="id-1.2.4.10.8.5"></a><h4>Parameters</h4>
+<div class="informaltable"><table width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody><tr>
+<td class="parameter_name"><p>file</p></td>
+<td class="parameter_description"><p>a <a class="link" href="GCabFile.html" title="GCabFile"><span class="type">GCabFile</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="id-1.2.4.10.8.6"></a><h4>Returns</h4>
+<p> the cabinet file size</p>
+</div>
+<p class="since">Since: <a class="link" href="index.html#api-index-0.6">0.6</a></p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gcab-file-new-with-file"></a><h3>gcab_file_new_with_file ()</h3>
+<pre class="programlisting"><a class="link" href="GCabFile.html" title="GCabFile"><span class="returnvalue">GCabFile</span></a> *
+gcab_file_new_with_file (<em class="parameter"><code>const <span class="type">gchar</span> *name</code></em>,
+                         <em class="parameter"><code><span class="type">GFile</span> *file</code></em>);</pre>
+<p>Create a <a class="link" href="GCabFile.html" title="GCabFile"><span class="type">GCabFile</span></a> from a given <span class="type">GFile</span>, to be added to a
+<a class="link" href="GCabCabinet.html" title="GCabCabinet"><span class="type">GCabCabinet</span></a> for archive creation.</p>
+<div class="refsect3">
+<a name="id-1.2.4.10.9.5"></a><h4>Parameters</h4>
+<div class="informaltable"><table width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>name</p></td>
+<td class="parameter_description"><p>name of the file within the cabinet</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>file</p></td>
+<td class="parameter_description"><p>a <span class="type">GFile</span> to be added to the cabinet</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="id-1.2.4.10.9.6"></a><h4>Returns</h4>
+<p> a new <a class="link" href="GCabFile.html" title="GCabFile"><span class="type">GCabFile</span></a></p>
+</div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gcab-file-set-extract-name"></a><h3>gcab_file_set_extract_name ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>
+gcab_file_set_extract_name (<em class="parameter"><code><a class="link" href="GCabFile.html" title="GCabFile"><span class="type">GCabFile</span></a> *file</code></em>,
+                            <em class="parameter"><code>const <span class="type">gchar</span> *name</code></em>);</pre>
+<p>Sets the file name to use for extraction, instead of the name
+provided by the Cabinet.</p>
+<div class="refsect3">
+<a name="id-1.2.4.10.10.5"></a><h4>Parameters</h4>
+<div class="informaltable"><table width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>file</p></td>
+<td class="parameter_description"><p>a <a class="link" href="GCabFile.html" title="GCabFile"><span class="type">GCabFile</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>name</p></td>
+<td class="parameter_description"><p> a file name or <code class="literal">NULL</code>. </p></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+</div>
+<div class="refsect1">
+<a name="GCabFile.other_details"></a><h2>Types and Values</h2>
+<div class="refsect2">
+<a name="GCabFileAttribute"></a><h3>enum GCabFileAttribute</h3>
+<p>Attributes associated with the <a class="link" href="GCabFile.html" title="GCabFile"><span class="type">GCabFile</span></a>.</p>
+<div class="refsect3">
+<a name="id-1.2.4.11.2.4"></a><h4>Members</h4>
+<div class="informaltable"><table width="100%" border="0">
+<colgroup>
+<col width="300px" class="enum_members_name">
+<col class="enum_members_description">
+<col width="200px" class="enum_members_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="enum_member_name"><p><a name="GCAB-FILE-ATTRIBUTE-RDONLY:CAPS"></a>GCAB_FILE_ATTRIBUTE_RDONLY</p></td>
+<td class="enum_member_description">
+<p>file is read-only</p>
+</td>
+<td class="enum_member_annotations"> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="GCAB-FILE-ATTRIBUTE-HIDDEN:CAPS"></a>GCAB_FILE_ATTRIBUTE_HIDDEN</p></td>
+<td class="enum_member_description">
+<p>file is hidden</p>
+</td>
+<td class="enum_member_annotations"> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="GCAB-FILE-ATTRIBUTE-SYSTEM:CAPS"></a>GCAB_FILE_ATTRIBUTE_SYSTEM</p></td>
+<td class="enum_member_description">
+<p>file is a system file</p>
+</td>
+<td class="enum_member_annotations"> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="GCAB-FILE-ATTRIBUTE-ARCH:CAPS"></a>GCAB_FILE_ATTRIBUTE_ARCH</p></td>
+<td class="enum_member_description">
+<p>file modified since last backup</p>
+</td>
+<td class="enum_member_annotations"> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="GCAB-FILE-ATTRIBUTE-EXEC:CAPS"></a>GCAB_FILE_ATTRIBUTE_EXEC</p></td>
+<td class="enum_member_description">
+<p>run after extraction</p>
+</td>
+<td class="enum_member_annotations"> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="GCAB-FILE-ATTRIBUTE-NAME-IS-UTF:CAPS"></a>GCAB_FILE_ATTRIBUTE_NAME_IS_UTF</p></td>
+<td class="enum_member_description">
+<p>name contains UTF</p>
+</td>
+<td class="enum_member_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="GCabFile-struct"></a><h3>GCabFile</h3>
+<pre class="programlisting">typedef struct _GCabFile GCabFile;</pre>
+<p>An opaque object, referencing a file in a Cabinet.</p>
+</div>
+</div>
+<div class="refsect1">
+<a name="GCabFile.property-details"></a><h2>Property Details</h2>
+<div class="refsect2">
+<a name="GCabFile--file"></a><h3>The <code class="literal">“file”</code> property</h3>
+<pre class="programlisting">  “file”                     <span class="type">GFile</span> *</pre>
+<p>file.</p>
+<p>Flags: Read / Write / Construct Only</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="GCabFile--name"></a><h3>The <code class="literal">“name”</code> property</h3>
+<pre class="programlisting">  “name”                     <span class="type">gchar</span> *</pre>
+<p>name.</p>
+<p>Flags: Read / Write / Construct Only</p>
+<p>Default value: NULL</p>
+</div>
+</div>
+<div class="refsect1">
+<a name="GCabFile.see-also"></a><h2>See Also</h2>
+<p><a class="link" href="GCabFolder.html" title="GCabFolder"><span class="type">GCabFolder</span></a></p>
+</div>
+</div>
+<div class="footer">
+<hr>Generated by GTK-Doc V1.24</div>
+</body>
+</html>

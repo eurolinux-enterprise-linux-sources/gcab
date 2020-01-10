@@ -1,0 +1,30 @@
+From 4d2c600f54d2f00d1604aaeb20e2285e9ab0cad9 Mon Sep 17 00:00:00 2001
+From: Richard Hughes <richard@hughsie.com>
+Date: Wed, 1 Mar 2017 16:40:05 +0000
+Subject: [PATCH 2/4] Always check the return value when writing to the stream
+
+---
+ libgcab/cabinet.c | 7 ++++---
+ 1 file changed, 4 insertions(+), 3 deletions(-)
+
+diff --git a/libgcab/cabinet.c b/libgcab/cabinet.c
+index 4df9024..a675d1b 100644
+--- a/libgcab/cabinet.c
++++ b/libgcab/cabinet.c
+@@ -190,9 +190,10 @@ cheader_write (cheader_t *ch, GDataOutputStream *out,
+         return FALSE;
+ 
+     if (ch->flags & CABINET_HEADER_RESERVE) {
+-        W2 (ch->res_header);
+-        W1 (ch->res_folder);
+-        W1 (ch->res_data);
++        if (!W2 (ch->res_header) ||
++            !W1 (ch->res_folder) ||
++            !W1 (ch->res_data))
++                return FALSE;
+         if (g_output_stream_write (stream, ch->reserved, ch->res_header,
+                                    cancellable, error) == -1)
+             return FALSE;
+-- 
+2.9.3
+

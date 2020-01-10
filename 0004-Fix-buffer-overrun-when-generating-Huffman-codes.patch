@@ -1,0 +1,27 @@
+From 42a8b8af21af24bb35548bcd2499c792d1a8c1a3 Mon Sep 17 00:00:00 2001
+From: Richard Hughes <richard@hughsie.com>
+Date: Wed, 1 Mar 2017 17:15:10 +0000
+Subject: [PATCH 4/4] Fix buffer overrun when generating Huffman codes
+
+---
+ libgcab/decomp.c | 4 +++-
+ 1 file changed, 3 insertions(+), 1 deletion(-)
+
+diff --git a/libgcab/decomp.c b/libgcab/decomp.c
+index 52445e8..3ee8f9b 100644
+--- a/libgcab/decomp.c
++++ b/libgcab/decomp.c
+@@ -190,7 +190,9 @@ struct Ziphuft **t, cab_LONG *m, fdi_decomp_state *decomp_state)
+           xp = ZIP(c) + k;
+           while (++j < z)       /* try smaller tables up to z bits */
+           {
+-            if ((f <<= 1) <= *++xp)
++            if (*++xp > ZIPBMAX)
++              return 2;         /* corrupt */
++            if ((f <<= 1) <= *xp)
+               break;            /* enough codes to use up j bits */
+             f -= *xp;           /* else deduct codes from patterns */
+           }
+-- 
+2.9.3
+

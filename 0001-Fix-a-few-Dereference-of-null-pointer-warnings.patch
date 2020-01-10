@@ -1,0 +1,53 @@
+From 411ce03bdeddd7cbf69cb7c68845c99908657bf9 Mon Sep 17 00:00:00 2001
+From: Richard Hughes <richard@hughsie.com>
+Date: Wed, 1 Mar 2017 16:39:27 +0000
+Subject: [PATCH 1/4] Fix a few 'Dereference of null pointer' warnings
+
+---
+ libgcab/cabinet.c      | 2 +-
+ libgcab/gcab-cabinet.c | 2 +-
+ libgcab/gcab-folder.c  | 2 +-
+ 3 files changed, 3 insertions(+), 3 deletions(-)
+
+diff --git a/libgcab/cabinet.c b/libgcab/cabinet.c
+index 1fa2af8..4df9024 100644
+--- a/libgcab/cabinet.c
++++ b/libgcab/cabinet.c
+@@ -562,7 +562,7 @@ end:
+         g_set_error (error, GCAB_ERROR, GCAB_ERROR_FAILED,
+                      "zlib failed: %s", zError (zret));
+ 
+-    if (!*error && !success)
++    if (error != NULL && *error == NULL && !success)
+         g_set_error (error, GCAB_ERROR, GCAB_ERROR_FAILED,
+                      "Invalid cabinet chunk");
+ 
+diff --git a/libgcab/gcab-cabinet.c b/libgcab/gcab-cabinet.c
+index e81b052..a6cc4f0 100644
+--- a/libgcab/gcab-cabinet.c
++++ b/libgcab/gcab-cabinet.c
+@@ -257,7 +257,7 @@ gcab_cabinet_write (GCabCabinet *self,
+ 
+         g_clear_object (&in);
+         in = G_INPUT_STREAM (g_file_read (file->file, cancellable, error));
+-        if (*error)
++        if (in == NULL)
+             goto end;
+ 
+         while ((len = g_input_stream_read (in,
+diff --git a/libgcab/gcab-folder.c b/libgcab/gcab-folder.c
+index e724097..dc33b6a 100644
+--- a/libgcab/gcab-folder.c
++++ b/libgcab/gcab-folder.c
+@@ -240,7 +240,7 @@ gcab_folder_add_file (GCabFolder *self, GCabFile *file,
+         g_return_val_if_fail (G_IS_FILE (gfile), FALSE);
+ 
+         GFileInfo *info = g_file_query_info (gfile, FILE_ATTRS, 0, NULL, error);
+-        if (*error)
++        if (info == NULL)
+             return FALSE;
+ 
+         success = add_file_info (self, file, info,
+-- 
+2.9.3
+

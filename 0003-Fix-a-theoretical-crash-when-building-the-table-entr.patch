@@ -1,0 +1,29 @@
+From 42c5e4f6d227b0dcee7e01702e9338f15dfa1568 Mon Sep 17 00:00:00 2001
+From: Richard Hughes <richard@hughsie.com>
+Date: Wed, 1 Mar 2017 17:02:05 +0000
+Subject: [PATCH 3/4] Fix a theoretical crash when building the table entries
+
+I can't actually see a way to construct the ZIPstate with no tables, but this
+at least this stops Coverity complaining.
+---
+ libgcab/decomp.c | 4 ++++
+ 1 file changed, 4 insertions(+)
+
+diff --git a/libgcab/decomp.c b/libgcab/decomp.c
+index cce368e..52445e8 100644
+--- a/libgcab/decomp.c
++++ b/libgcab/decomp.c
+@@ -248,6 +248,10 @@ struct Ziphuft **t, cab_LONG *m, fdi_decomp_state *decomp_state)
+         i ^= j;
+       i ^= j;
+ 
++      /* no tables */
++      if (h < 0)
++        return 2;               /* corrupt */
++
+       /* backup over finished tables */
+       while ((i & ((1 << w) - 1)) != ZIP(x)[h])
+         w -= l[--h];            /* don't need to update q */
+-- 
+2.9.3
+
