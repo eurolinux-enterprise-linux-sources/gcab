@@ -1,6 +1,6 @@
 Name:           gcab
 Version:        0.7
-Release:        3%{?dist}
+Release:        4%{?dist}
 Summary:        Cabinet file library and tool
 
 License:        LGPLv2+
@@ -13,6 +13,7 @@ Patch1:         0001-Fix-a-few-Dereference-of-null-pointer-warnings.patch
 Patch2:         0002-Always-check-the-return-value-when-writing-to-the-st.patch
 Patch3:         0003-Fix-a-theoretical-crash-when-building-the-table-entr.patch
 Patch4:         0004-Fix-buffer-overrun-when-generating-Huffman-codes.patch
+Patch5:         0001-Do-not-crash-when-ncbytes-is-larger-than-the-buffer-.patch
 
 BuildRequires:  intltool
 BuildRequires:  vala-tools
@@ -48,6 +49,7 @@ Libraries, includes, etc. to compile with the gcab library.
 %patch2 -p1 -b .coverity2
 %patch3 -p1 -b .coverity3
 %patch4 -p1 -b .coverity4
+%patch5 -p1 -b .cve20185345
 
 %build
 %configure --disable-silent-rules --disable-static
@@ -84,6 +86,10 @@ rm -f %{buildroot}%{_libdir}/*.la
 %{_libdir}/pkgconfig/libgcab-1.0.pc
 
 %changelog
+* Wed Feb 14 2018 Richard Hughes <rhughes@redhat.com> - 0.7-4
+- Fixes the security issue known as CVE-2018-5345
+- Resolves: #1533174
+
 * Mon Mar 06 2017 Richard Hughes <rhughes@redhat.com> - 0.7-3
 - Fix some more bugs spotted by coverity and RPMDiff.
 - Resolves: #1388476
